@@ -1,0 +1,14 @@
+1. Subnetting adalah suatu teknik yang digunakan untuk membagi suatu jaringan menjadi beberapa subnet. Tujuannya untuk mengurangi jumlah broadcast domain di dalam jaringan dan meningkatkan efisiensi penggunaan alamat IP.
+
+2. Ketidakmampuan seseorang untuk mengetahui atau menyadari sesuatu. Biasanya terjadi karena seseorang tidak memiliki informasi yang cukup atau tidak memperhatikan sesuatu yang terjadi di sekitarnya.
+
+3. Analisis Resiko - Perencanaan - Implementasi - Monitoring - Review
+
+4. Klasifikasi keamanan komputer adalah cara untuk mengelompokkan keamanan komputer menurut tingkat kepentingannya. Beberapa klasifikasi keamanan komputer yaitu, kemanan fisik, logis, jaringan, data, aplikasi, pengguna.
+
+5. Celah keamanan komputer adalah suatu kegagalan dalam sistem keamanan komputer yang dapat diexploitasi oleh pihak yang tidak bertanggung jawab untuk mengakses informasi yang tidak semestinya atau merusak sistem. Cara mengatasi : 
+Identifikasi celah keamanan - Menutup celah keamanan - Maintenance
+
+6. Routing adalah proses yang digunakan untuk menentukan rute terbaik (menggunakan router) yang akan digunakan oleh paket data untuk mencapai tujuannya di jaringan komputer.
+
+7. lapisan teratas dalam model referensi OSI. Terletak di atas lapisan transport dan bertanggung jawab untuk menyediakan layanan. Layer aplikasi menyediakan layanan seperti enkripsi, autentikasi, dan kompresi data untuk memastikan keamanan dan efisiensi transmisi data.
