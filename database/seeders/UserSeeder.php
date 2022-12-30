@@ -22,6 +22,8 @@ class UserSeeder extends Seeder
             'password' => bcrypt('admin'),
             'foto' => 'user.png',
             'id_level' => '1',
+            'created_at' => now(),
+            'updated_at' => now(),
         ],
         [
             'name' => 'Karyawan',
@@ -29,6 +31,8 @@ class UserSeeder extends Seeder
             'password' => bcrypt('123'),
             'foto' => 'user.png',
             'id_level' => '2',
+            'created_at' => now(),
+            'updated_at' => now(),
         ]
         ));
     }

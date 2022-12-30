@@ -42,8 +42,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function level()
-    {
-        return $this->belongsTo(Level::class);
+    public function level() {
+        return $this->belongsTo('App\Models\Level', 'id_level');
     }
 }

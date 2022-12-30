@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 25, 2022 at 02:23 PM
+-- Generation Time: Dec 30, 2022 at 10:50 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -62,6 +62,25 @@ INSERT INTO `kategori` (`id_kategori`, `nama_kategori`, `created_at`, `updated_a
 (10, 'Celana Jeans', '2022-12-25 04:49:15', '2022-12-25 04:49:15'),
 (11, 'Celana Kain', '2022-12-25 04:51:16', '2022-12-25 04:51:16'),
 (12, 'ATK', '2022-12-25 06:18:45', '2022-12-25 06:18:45');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `level`
+--
+
+CREATE TABLE `level` (
+  `id_level` int(10) NOT NULL,
+  `nama_level` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `level`
+--
+
+INSERT INTO `level` (`id_level`, `nama_level`) VALUES
+(1, 'Admin'),
+(2, 'Karyawan');
 
 -- --------------------------------------------------------
 
@@ -148,7 +167,7 @@ CREATE TABLE `users` (
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) NOT NULL,
   `foto` varchar(255) DEFAULT NULL,
-  `id_level` int(10) UNSIGNED NOT NULL,
+  `id_level` int(10) NOT NULL,
   `remember_token` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -159,8 +178,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `foto`, `id_level`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'admin@localhost.com', NULL, '$2y$10$G5uRmpYJObhOprftXVmJme8BNggicMO7K6Bgo/7BHSVm/P2xHt3pC', 'user.png', 1, 'ttALvus1RrXdvtEUnU3IOgLXZR6cSKAISHGVKMG37O19yacSi0iKdkl6poNZ', NULL, NULL),
-(2, 'Karyawan', 'karyawan@localhost.com', NULL, '$2y$10$LrGYV9CxZRL7xcHtIaAlc.hft8YT7CtMJdbSjVDMRknRFTrxi.ERm', 'user.png', 2, '0p91vyWmBipC99Cvk1g4W1Uit2mdHa0u37zavaAZd4Q38v81CBRxIwqDFdp4', NULL, NULL);
+(5, 'Admin', 'admin@localhost.com', NULL, '$2y$10$PVsC0Rbg9My4R6g03ByWtufLaTtUMt5ga7aVmTt7nqJVCpWYceEXa', 'user.png', 1, NULL, '2022-12-30 02:22:40', '2022-12-30 02:22:40'),
+(6, 'Karyawan', 'karyawan@localhost.com', NULL, '$2y$10$6xxP.Uphs3q391qFu4y2Eu7igoaADGL4m5voMnlQYEU62DGjuez12', 'user.png', 2, NULL, '2022-12-30 02:22:40', '2022-12-30 02:22:40');
 
 --
 -- Indexes for dumped tables
@@ -178,6 +197,12 @@ ALTER TABLE `failed_jobs`
 --
 ALTER TABLE `kategori`
   ADD PRIMARY KEY (`id_kategori`);
+
+--
+-- Indexes for table `level`
+--
+ALTER TABLE `level`
+  ADD PRIMARY KEY (`id_level`);
 
 --
 -- Indexes for table `migrations`
@@ -211,7 +236,8 @@ ALTER TABLE `produk`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `users_email_unique` (`email`);
+  ADD UNIQUE KEY `users_email_unique` (`email`),
+  ADD KEY `users_id_level_foreign` (`id_level`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -230,6 +256,12 @@ ALTER TABLE `kategori`
   MODIFY `id_kategori` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
+-- AUTO_INCREMENT for table `level`
+--
+ALTER TABLE `level`
+  MODIFY `id_level` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
@@ -245,13 +277,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id_produk` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_produk` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
@@ -262,6 +294,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `produk`
   ADD CONSTRAINT `produk_id_kategori_foreign` FOREIGN KEY (`id_kategori`) REFERENCES `kategori` (`id_kategori`);
+
+--
+-- Constraints for table `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `users_id_level_foreign` FOREIGN KEY (`id_level`) REFERENCES `level` (`id_level`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
